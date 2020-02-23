@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<table id="myTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th >Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr id="{{ product.id }}">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <!--<a class="text-danger" href="{{ path('app_rest_products_deleteproduct',{'id':product.id}) }}">Buy</a>-->
+                    <button class="text-danger" onclick="deleteProduct({{ product.id }})">Buy</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    {% block javascripts %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="{{ asset('./scripts/script.js') }}"></script>
+    {% endblock %}
+{% endblock %}

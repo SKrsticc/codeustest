@@ -1,0 +1,25 @@
+**symfony 4.4 projekat**
+
+-promeniti polja "database_name" i "database_password" u .env fajlu
+
+-ime baze se zove "test" pa kreirati rucno bazu "test"
+
+-kreirati semu baze podataka komandom:
+	php bin/console doctrine:migrations:migrate
+
+-popuniti bazu podataka podacima komandom:
+	php bin/console doctrine:fixtures:load
+
+-pokrenuti server:
+	php bin/console server:run
+
+
+tabela se nalazi na .../products
+
+**REST**
+
+To add a product => [POST] /products
+To create a voucher and associate it with a discount tier => [POST] /api/discounttiers/{dtId}/vouchers
+To add a voucher bind to a certain product => [POST] /api/products/{pId}/vouchers/{vId}
+To remove voucher bind from a certain product => [DELETE] /api/products/{pId}/vouchers/{vId}
+To buy a product => [DELETE] /products/{pId}
